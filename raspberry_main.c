@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <arm_neon.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/adc.h"
-#include <arm_neon.h>
+
 
 // Number of sensors to process
 #define NUM_SENSORS 3
