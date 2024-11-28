@@ -4,7 +4,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -march=native
+CFLAGS = -Wall -march=native -lm
 
 # Source files
 SCALAR_SRC = main-program-scalar.c
@@ -20,26 +20,26 @@ all: check_scalar check_simd
 # Check and build scalar version
 check_scalar:
 	@if [ -f $(SCALAR_SRC) ]; then \
-		$(MAKE) scalar; \
-	else \
-		echo "Scalar source file $(SCALAR_SRC) not found. Skipping scalar build."; \
-	fi
+       	        $(MAKE) scalar; \
+       	else \
+       	        echo "Scalar source file $(SCALAR_SRC) not found. Skipping scalar build."; \
+       	fi
 
 # Compile scalar version
 scalar: $(SCALAR_SRC)
-	$(CC) $(CFLAGS) -lm -o $(SCALAR_EXEC) $(SCALAR_SRC)
+	$(CC) $(SCALAR_SRC) -o $(SCALAR_EXEC) $(CFLAGS)
 
 # Check and build SIMD version
 check_simd:
 	@if [ -f $(SIMD_SRC) ]; then \
-		$(MAKE) simd; \
+	        $(MAKE) simd; \
 	else \
-		echo "SIMD source file $(SIMD_SRC) not found. Skipping SIMD build."; \
-	fi
+              echo "SIMD source file $(SIMD_SRC) not found. Skipping SIMD build."; \
+        fi
 
 # Compile SIMD version
 simd: $(SIMD_SRC)
-	$(CC) $(CFLAGS) -lm -o $(SIMD_EXEC) $(SIMD_SRC)
+	$(CC) $(SIMD_SRC) -o $(SIMD_EXEC) $(CFLAGS)
 
 # Clean up compiled binaries
 clean:
