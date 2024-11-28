@@ -3,9 +3,17 @@
 #include <string.h>
 #include <arm_neon.h>
 #include <math.h>
+#include <sys/time.h>
 
 #define MAX_LINE_LENGTH 256
-#define MAX_LINES 33000
+#define MAX_LINES 260000
+
+
+double get_wtime(void){
+    struct timeval t;
+    gettimeofday(&t, NULL);
+    return (double)t.tv_sec + (double)t.tv_usec*1.0e-6;
+}
 
 // average of an array of floats
 float calculate_average_scalar(float *data, int n) {
@@ -109,7 +117,7 @@ float calculate_variance_scalar(float *data, int n) {
 
 int main() {
     // file pointer and line buffer
-    FILE *file = fopen("data.csv", "r");
+    FILE *file = fopen("merged_data.csv", "r");
     if (!file) {
         perror("Unable to open file");
         return EXIT_FAILURE;
@@ -153,6 +161,11 @@ int main() {
     
 
     // ------------------------- CALCULATION FUNCTIONS ------------------------------
+
+    double start_time = 0.0f;
+    double end_time = 0.0f;
+    start_time = get_wtime();
+
     // average of x_g, y_g, z_g
     printf("Calculating averages...\n");
     printf("Average x_g: %f\n", calculate_average_scalar(x_g, count));
@@ -180,5 +193,10 @@ int main() {
     printf("\nCalculating variance of z_g...\n");
     printf("Variance of z_g: %f\n", calculate_variance_scalar(z_g, count));
 
+
+    end_time = get_wtime();
+    double total_diff = end_time - start_time;
+    printf("Time taken: %.8f \n", total_diff);
+    
     return EXIT_SUCCESS;
 }
