@@ -8,7 +8,9 @@ This repository contains a series of functions to demonstrate the use of ARM's N
    
 **Math:**
 <br>
+<br>
 $\text{Average} = \frac{1}{n} \sum_{i=1}^{n} x_i \]$
+<br>
 <br>
 Where \(x_i\) are the elements of the array and \(n\) is the number of elements.
 
@@ -24,7 +26,9 @@ float calculate_average_neon(float *data, int n);
 
 **Math:**
 <br>
+<br>
 $\text{Magnitude} = \sqrt{x^2 + y^2 + z^2}$
+<br>
 <br>
 Where \(x\), \(y\), and \(z\) are the components of the vector.
 
@@ -40,9 +44,12 @@ void calculate_magnitudes_neon(float *x, float *y, float *z, float *magnitudes, 
 
 **Math:**
 <br>
+<br>
 $m = \frac{n\sum xy - \sum x \sum y}{n \sum x^2 - (\sum x)^2}$
 <br>
+<br>
 $b = \frac{\sum y - m \sum x}{n}$
+<br>
 <br>
 Where \(m\) is the slope, \(b\) is the intercept, \(x\) is the independent variable, and \(y\) is the dependent variable.
 
@@ -58,7 +65,9 @@ void calculate_least_squares_neon(float *x, float *y, int n, float *m, float *b)
 
 **Math:**
 <br>
+<br>
 $\text{Variance} = \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2$
+<br>
 <br>
 Where \(x_i\) are the elements of the array and \(\mu\) is the mean of the array.
 
