@@ -1,5 +1,7 @@
 # Makefile for ACM SIMD Workshop
 
+# ** DO NOT CHANGE ANYTHING ON THIS FILE **
+
 # Compiler
 CC = gcc
 
