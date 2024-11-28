@@ -2,22 +2,12 @@
 
 This repository contains a series of functions to demonstrate the use of ARM's NEON SIMD instructions for efficiently processing data from a CSV file. The functions include calculations such as averages, vector magnitudes, least-squares fit, and variance.
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-
 ## Functions
 
 ### 1. **Average of x-axis (g), y-axis (g), and z-axis (g)**
    
 **Math:**
-$\text{Average} = \frac{1}{n} \sum_{i=1}^{n} x_i$
+\[ \text{Average} = \frac{1}{n} \sum_{i=1}^{n} x_i \]
 Where \(x_i\) are the elements of the array and \(n\) is the number of elements.
 
 **Description:**
