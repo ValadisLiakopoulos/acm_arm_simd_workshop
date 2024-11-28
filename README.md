@@ -73,13 +73,93 @@ float calculate_variance_neon(float *data, int n);
 
 ## Timing
 
-Each of these functions is optimized with ARM's NEON SIMD instructions. The time taken for all calculations is measured using `clock()`, and the total execution time for the entire program is displayed.
+The time taken for all calculations is measured using a struct `get_wtime` that exists in the code.
 
 ```c
-clock_t start_time = clock();
-clock_t end_time = clock();
-double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-printf("Total time taken for calculations: %.6f seconds\n", time_taken);
+double get_wtime(void){
+    struct timeval t;
+    gettimeofday(&t, NULL);
+    return (double)t.tv_sec + (double)t.tv_usec*1.0e-6;
+}
 ```
 
 This allows for a precise measurement of the time taken for each SIMD-optimized operation, enabling you to compare performance gains when using SIMD.
+
+# Working on the Project
+
+Make sure you only write code on the file `main-program-simd.c`. ***DO NOT*** change the scalar one. You need it to check the validity of your results in the SIMD version.
+
+## SSH Connection to your Raspberry Pi Zero 2W
+
+Workshop supervisor will give you a raspberry pi and an IP Address to connect via Secure Shell. In order to establish an SSH connection, run on your terminal:
+
+```shell
+ssh user@192.168.1.X
+```
+Credentials are `user` and password `user`. The X value is dependent on the raspberry that will be assigned to your team.
+
+## Where to find help for SIMD
+
+1. Official Arm [Documentation](https://developer.arm.com/architectures/instruction-sets/intrinsics/) 
+2. Of course, [SIMD.info](https://simd.info)
+3. AI is your friend. You can use the chatbot of your liking.
+
+## Compilation of code
+
+In order for a C program to run, the source code needs to be compiled with linked libraries. In order to make the compilation stage easier for the contenstant, we'll use `Makefile`.
+
+### Compile for the first time
+
+If you going to compile the code for the first time, make sure you are in the directory that contains the `Makefile`. Then run on your terminal:
+```shell
+make
+```
+You should see the code getting compiled.
+
+### Compiling after the first time
+
+If you are going to compile again, make sure to remove all executables that are already created.
+To do that, run on your terminal:
+```shell
+make clean
+```
+
+It will remove all binaries from the code folder.
+
+### Compile one file only
+
+In order to compile one file only, run on your terminal:
+```shell
+make scalar
+```
+To compile only the serial version or:
+```shell
+make simd
+```
+To compile the SIMD version of the code.
+
+## Executing the C programs
+
+At last, you have to run the serial program and your SIMD solution. Run on your terminal:
+
+```shell
+./scalar_program
+```
+For the scalar/serial program, and:
+
+```shell
+./simd_program
+```
+For the SIMD program that you wrote.
+
+In the terminal, you should see the results and the time taken for execution.
+
+# Contest
+
+In order to win the prizes as a team, you'll be judged based on the solution you will give. Some of the criteria are:
+
+- The code execution is flawless
+- The good use of SIMD Instructions
+- The time difference of the scalar and SIMD solution
+- The absence of warnings in the compilation phase
+

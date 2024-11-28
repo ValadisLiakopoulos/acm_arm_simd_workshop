@@ -1,9 +1,9 @@
 
 /* ACM Workshop - Software Optimization using SIMD Instructions  */
 
-/* **THIS IS THE SERIAL VERSION OF THE CODE** */
-/* **DO NOT CHANGE IT, IN ORDER TO CHECK YOUR RESULTS FROM YOUR CUSTOM SIMD CODE** */
-/* **MAKE CHANGES ONLY IN THE main-program-simd.c FILE** */
+/* In this file, you have to make the SIMD solution for the problems below */
+
+/* !Do not change the constants in the #define section!*/ 
 
 #include <stdio.h>
 #include <stdlib.h>
