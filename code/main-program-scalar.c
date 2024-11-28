@@ -6,7 +6,7 @@
 #include <sys/time.h>
 
 #define MAX_LINE_LENGTH 256
-#define MAX_LINES 260000
+#define MAX_LINES 33000
 
 
 double get_wtime(void){
@@ -117,7 +117,7 @@ float calculate_variance_scalar(float *data, int n) {
 
 int main() {
     // file pointer and line buffer
-    FILE *file = fopen("merged_data.csv", "r");
+    FILE *file = fopen("data.csv", "r");
     if (!file) {
         perror("Unable to open file");
         return EXIT_FAILURE;
