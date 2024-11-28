@@ -76,7 +76,7 @@ float calculate_variance_neon(float *data, int n);
 Each of these functions is optimized with ARM's NEON SIMD instructions. The time taken for all calculations is measured using `clock()`, and the total execution time for the entire program is displayed.
 
 ```c
-clock_t start_time = clock(); // Call the functions here
+clock_t start_time = clock();
 clock_t end_time = clock();
 double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 printf("Total time taken for calculations: %.6f seconds\n", time_taken);
