@@ -106,19 +106,15 @@ ssh user@192.168.1.X
 ```
 Credentials are `user` and password `user`. The X value is dependent on the raspberry that will be assigned to your team.
 
-## Cloning the Repository from GitHub using git
+## Finding the Project files
 
-To start working on the project, you have to clone the repository from out GitHub. To do that, run on your terminal:
+The project files are in the `~/Desktop/Workshop` of your Raspberry Pi.
+(`~`: home directory)
 
-```bash
-git clone https://github.com/acmupatras/acm_arm_simd_workshop.git
+```shell
+cd /Desktop/Workshop
 ```
 
-or
-
-```bash
-wget https://github.com/acmupatras/acm_arm_simd_workshop.git
-```
 
 ## Where to find help for SIMD
 
