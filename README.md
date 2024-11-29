@@ -112,7 +112,7 @@ The project files are in the `~/Desktop/Workshop` of your Raspberry Pi.
 (`~`: home directory)
 
 ```shell
-cd /Desktop/Workshop
+cd ~/Desktop/Workshop
 ```
 
 
